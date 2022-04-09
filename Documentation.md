@@ -11,6 +11,10 @@
 - Roblox's [StarterGui](https://developer.roblox.com/en-us/api-reference/class/StarterGui) Service.
 ## Players
 - Roblox's [Players](https://developer.roblox.com/en-us/api-reference/class/Players) Service.
+## StarterPlayer
+- Roblox's [StarterPlayer](https://developer.roblox.com/en-us/api-reference/class/StarterPlayer) Service.
+## Lighting
+- Roblox's [Lighting](https://developer.roblox.com/en-us/api-reference/class/Lighting) Service.
 ## ReplicatedStorage
 - Roblox's [ReplicatedStorage](https://developer.roblox.com/en-us/api-reference/class/ReplicatedStorage) Service.
 ## ReplicatedFirst
