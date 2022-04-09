@@ -142,7 +142,7 @@ local Functions = {
 
     AliveCheck = function(Player)
         if Player ~= Variables.LocalPlayer then
-            return Player.Character.Humanoid.Health <= 0
+            return Player.Character.Humanoid.Health > 0
         else
             return nil
         end
