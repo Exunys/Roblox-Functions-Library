@@ -77,7 +77,7 @@ end
   - **Settings** - If left empty, all values are set to `false` by deafult. 
 ## OnScreenCheck
 ```lua
-<bool> OnScreenCheck(<userdata (Instance)>, Object)
+<bool> OnScreenCheck(<userdata (Instance)> Object)
 ```
 - Checks if the entered **Object** is visible on your [Viewport Screen Point](https://developer.roblox.com/en-us/api-reference/function/Camera/WorldToViewportPoint)
 ## TableDump
