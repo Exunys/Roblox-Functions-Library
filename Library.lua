@@ -20,7 +20,8 @@ local Services = {
 
 local Variables = {
     LocalPlayer = Services.Players.LocalPlayer,
-    Typing = false
+    Typing = false,
+    Mouse = Services.Players.LocalPlayer:GetMouse()
 }
 
 --// Functions
