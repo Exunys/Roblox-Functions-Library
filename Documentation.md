@@ -47,7 +47,7 @@ end
 ```lua
 <void> SendNotification(<string> Title, <string> Description, <uint> Duration, <string> Icon)
 ```
-- Sends a notification using Roblox's StarterGui service.
+- Sends a notification using Roblox's [StarterGui](https://developer.roblox.com/en-us/api-reference/class/StarterGui) service.
 - Preview:
 
 ![image](https://user-images.githubusercontent.com/76539058/162580732-f43bcdd8-1c2a-4a49-b1d2-726d7b4f8c2b.png)
