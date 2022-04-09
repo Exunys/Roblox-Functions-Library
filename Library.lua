@@ -136,7 +136,15 @@ local Functions = {
         else
             return nil
         end
-    end
+    end,
+
+    AliveCheck = function(Player)
+        if Player ~= Variables.LocalPlayer then
+            return Player.Character.Humanoid.Health <= 0
+        else
+            return nil
+        end
+    end,
 }
 
 --// Managing
