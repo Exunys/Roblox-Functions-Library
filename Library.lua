@@ -127,6 +127,8 @@ local Functions = {
     end,
 
     WallCheck = function(Object, Blacklist)
+        if type(Blacklist) ~= "table" then Blacklist = Object:GetDescendants() end
+
         return #(Services.Camera:GetPartsObscuringTarget({Object}, Blacklist)) > 0
     end,
 
