@@ -150,16 +150,6 @@ local Functions = {
     end,
 }
 
---// Managing
-
-Services.UserInputService.TextBoxFocused:Connect(function()
-    Variables.Typing = true
-end)
-
-Services.UserInputService.TextBoxFocusReleased:Connect(function()
-    Variables.Typing = false
-end)
-
 --// Main
 
 for i, v in next, Services do
@@ -173,6 +163,16 @@ end
 for i, v in next, Functions do
     getfenv(1)[i] = v
 end
+
+--// Managing
+
+Services.UserInputService.TextBoxFocused:Connect(function()
+    getfenv(1).Typing = true
+end)
+
+Services.UserInputService.TextBoxFocusReleased:Connect(function()
+    getfenv(1).Typing = false
+end)
 
 --// Unload Function
 
