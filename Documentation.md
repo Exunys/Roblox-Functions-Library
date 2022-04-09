@@ -83,7 +83,7 @@ GetClosestPlayer(90, "Head", {true, true, false})
 ```lua
 <bool> OnScreenCheck(<userdata (Instance)> Object)
 ```
-- Checks if the entered **Object** is visible on your [Viewport Screen Point](https://developer.roblox.com/en-us/api-reference/function/Camera/WorldToViewportPoint)
+- Checks if the entered **Object** is visible on your [Viewport Screen Point](https://developer.roblox.com/en-us/api-reference/function/Camera/WorldToViewportPoint).
 ## TableDump
 ```lua
 <void> TableDump(<table> Table)
