@@ -67,14 +67,18 @@ end
 ```
 - Settings:
 ```lua
-<bool> TeamCheck -- Team Check (If the player is the same team as you, he gets skipped)
-<bool> AliveCheck -- Alive Check (If the player is dead, he gets skipped)
-<bool> WallCheck -- Wall Check (LAGGY, RECOMMENDED TO KEEP AT false) (If the player is obscured by parts / not visible, he gets skipped, this property is useful to add the element of appearing as legit)
+<bool> [1] TeamCheck -- Team Check (If the player is the same team as you, he gets skipped)
+<bool> [2] AliveCheck -- Alive Check (If the player is dead, he gets skipped)
+<bool> [3] WallCheck -- Wall Check (LAGGY, RECOMMENDED TO KEEP AT false) (If the player is obscured by parts / not visible, he gets skipped, this property is useful to add the element of appearing as legit)
 ```
 - Returns the Player which is closest to your mouse cursor, parameters:
   - **Distance** - The radius of checking, if the player is not within this radius of your mouse, he gets skipped out of the checking circle. If left empty, set to `math.huge` by default.
   - **Part** - The part that the function runs all the checks for. If left empty, set to `"HumanoidRootPart"` by default.
-  - **Settings** - If left empty, all values are set to `false` by deafult. 
+  - **Settings** - If left empty, all values are set to `false` by deafult.
+- Example:
+```lua
+GetClosestPlayer(90, "Head", {true, true, false})
+```
 ## OnScreenCheck
 ```lua
 <bool> OnScreenCheck(<userdata (Instance)> Object)
