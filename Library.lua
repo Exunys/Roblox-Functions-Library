@@ -62,6 +62,7 @@ local Functions = {
     GetClosestPlayer = function(RequiredDistance, Part, Settings)
         if not RequiredDistance then RequiredDistance = math.huge end
         if not Part then Part = "HumanoidRootPart" end
+        if not Settings then Settings = {false, false, false} end
 
         local Target = nil
 
@@ -69,9 +70,9 @@ local Functions = {
             if v ~= Variables.LocalPlayer then
                 if v.Character[Part] then
                     if type(Settings) == "table" then
-                        if Settings.TeamCheck and v.TeamColor == Variables.LocalPlayer.TeamColor then continue end
-                        if Settings.AliveCheck and v.Character.Humanoid.Health <= 0 then continue end
-                        if Settings.WallCheck and #(Services.Camera:GetPartsObscuringTarget({v.Character[Part].Position}, v.Character:GetDescendants())) > 0 then continue end
+                        if Settings[1] and v.TeamColor == Variables.LocalPlayer.TeamColor then continue end
+                        if Settings[2] and v.Character.Humanoid.Health <= 0 then continue end
+                        if Settings[3] and #(Services.Camera:GetPartsObscuringTarget({v.Character[Part].Position}, v.Character:GetDescendants())) > 0 then continue end
                     end
 
                     local Vector, OnScreen = Services.Camera:WorldToViewportPoint(v.Character[Part].Position)
