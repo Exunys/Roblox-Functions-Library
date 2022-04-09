@@ -36,6 +36,8 @@ if Typing then
   print("Player is focused onto a textbox...")
 end
 ```
+## Mouse
+- This variable stores the LocalPlayer's Mouse. Equivalent to `LocalPlayer:GetMouse()`.
 # Functions
 ## Encode
 ```lua
