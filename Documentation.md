@@ -114,12 +114,12 @@ end
 - Checks if the **Object** is obscured by walls, instances listed inside **Blacklist** will be ignored.
 - If **Blacklist** parameter is *nil*, It's set to the descendants of the **Object** by default. 
 ## TeamCheck
-```
+```lua
 <bool> TeamCheck(<userdata (Instance)> Player)
 ```
 - If the entered **Player** object is in the same team as you, the function returns *true* and vice versa.
 ## AliveCheck
-```
+```lua
 <bool> AliveCheck(<userdata (Instance)> Player)
 ```
 - If the entered **Player** object is alive, the function returns *true* and vice versa.
