@@ -133,6 +133,26 @@ GetClosestPlayer(90, "Head", {true, true, false})
 <bool> AliveCheck(<userdata (Instance)> Player)
 ```
 - If the entered **Player** object is alive, the function returns *true* and vice versa.
+## GetUniverseId
+```lua
+<uint> GetUniverseId()
+```
+- Returns the game's **Universe Identificator**, because Roblox doesn't display it in-game.
+## GetIP
+```lua
+<string> GetIP()
+```
+- Returns the client's **IP Address**.
+## GetHWID
+```lua
+<string> GetHWID()
+```
+- Returns the client's **Exploit Identifier** (not really the HWID but in this case it kind of acts like one).
+## TestSpeed
+```lua
+<uint> TestSpeed(<function> Function, <uint> Checks)
+```
+- Test's the entered *Function*'s speed with the entered amount of *Checks*. If *Checks* are `nil` then *Checks* are set to `1000` by default.
 # Extra
 ## ED_UnloadFunctions
 ```lua
