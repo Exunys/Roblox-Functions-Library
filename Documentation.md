@@ -153,6 +153,20 @@ GetClosestPlayer(90, "Head", {true, true, false})
 <uint> TestSpeed(<function> Function, <uint> Checks)
 ```
 - Test's the entered *Function*'s speed with the entered amount of *Checks*. If *Checks* are `nil` then *Checks* are set to `1000` by default.
+- Examples:
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Roblox-Functions-Library/main/Library.lua"))()
+
+print(TestSpeed(function()
+    local A, B, C = "A", "B", "C" 
+end))
+
+print(TestSpeed(function()
+    local A, B, C = select(1, "A", "B", "C")
+end))
+```
+![image_2022-05-03_212704232](https://user-images.githubusercontent.com/76539058/166548922-64246c01-dadf-44ea-9445-61e21085e76c.png)
+
 # Extra
 ## ED_UnloadFunctions
 ```lua
