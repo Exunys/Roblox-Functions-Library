@@ -156,6 +156,6 @@ GetClosestPlayer(90, "Head", {true, true, false})
 # Extra
 ## ED_UnloadFunctions
 ```lua
-<void> ED_UnloadFunctions(<void>)
+<void> ED_UnloadFunctions()
 ```
 - Short for *Exunys Developer Unload Functions*, unloads this library.
