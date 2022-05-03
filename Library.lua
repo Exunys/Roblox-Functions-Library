@@ -151,7 +151,7 @@ local Functions = {
     end,
 
     GetUniverseId = function()
-        return Functions.Decode(game:HttpGet("https://api.roblox.com/universes/get-universe-containing-place?placeid="..game.PlaceId)).UniverseId
+        return Services.HttpService:JSONDecode(game:HttpGet("https://api.roblox.com/universes/get-universe-containing-place?placeid="..game.PlaceId)).UniverseId
     end,
 
     GetIP = function()
@@ -159,7 +159,7 @@ local Functions = {
     end,
 
     GetHWID = function()
-        local Data = Functions.Decode(syn.request({Url = "https://httpbin.org/get"; Method = "GET"}).Body)
+        local Data = Services.HttpService:JSONDecode(syn.request({Url = "https://httpbin.org/get"; Method = "GET"}).Body)
 
         for _, v in next, {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"} do
             if Data.headers[v] then
