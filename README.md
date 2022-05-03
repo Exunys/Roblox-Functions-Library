@@ -5,6 +5,7 @@
 - Please send requests and bug reports to [Exunys](https://github.com/Exunys)' email.
 ## Update Log (Format: DD/MM/YYYY)
 - [9.4.2022] - V1.0 First release
+- [3.5.2022] - V1.1 Release
 ## Installing
 - To install / import this library inside your code's environment, you will need to use the `loadstring` function. Example:
 ```lua
