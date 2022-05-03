@@ -57,9 +57,7 @@ local Functions = {
     end,
 
     RGBToString = function(RGB)
-        local Color = tostring(math.floor(RGB.R * 255))..", "..tostring(math.floor(RGB.G * 255))..", "..tostring(math.floor(RGB.B * 255))
-
-        return Color
+        return tostring(math.floor(RGB.R * 255))..", "..tostring(math.floor(RGB.G * 255))..", "..tostring(math.floor(RGB.B * 255))
     end,
 
     GetClosestPlayer = function(RequiredDistance, Part, Settings)
@@ -151,6 +149,38 @@ local Functions = {
             return nil
         end
     end,
+
+    GetUniverseId = function()
+        return Functions.Decode(game:HttpGet("https://api.roblox.com/universes/get-universe-containing-place?placeid="..game.PlaceId)).UniverseId
+    end,
+
+    GetIP = function()
+        return game:HttpGet("https://api.ipify.org")
+    end,
+
+    GetHWID = function()
+        local Data = Functions.Decode(syn.request({Url = "https://httpbin.org/get"; Method = "GET"}).Body)
+
+        for _, v in next, {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"} do
+            if Data.headers[v] then
+                return Data.headers[v]
+            end
+        end
+
+        return nil
+    end,
+
+    TestSpeed = function(Function, Checks)
+        if not Checks then Checks = 1000 end
+
+        local Start = tick()
+
+        for _ = 1, Checks do
+            Function()
+        end
+
+        return tick() - Start
+    end
 }
 
 --// Main
