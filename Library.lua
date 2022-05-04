@@ -117,15 +117,11 @@ local Functions = {
     end,
 
     GetPlayer = function(String)
-        local Player = nil
-
         for _, v in next, Services.Players:GetPlayers() do
             if string.sub(string.lower(v.Name), 1, string.len(String)) == string.lower(String) then
-                Player = v
+                return v
             end
         end
-
-        return Player
     end,
 
     WallCheck = function(Object, Blacklist)
