@@ -90,12 +90,21 @@ GetClosestPlayer(90, "Head", {true, true, false})
 <bool> OnScreenCheck(<userdata (Instance)> Object)
 ```
 - Checks if the entered **Object** is visible on your [Viewport Screen Point](https://developer.roblox.com/en-us/api-reference/function/Camera/WorldToViewportPoint).
-## TableDump
+## Recursive
 ```lua
-<void> TableDump(<table> Table)
+<void> Recursive(<table> Table, <function> Callback)
 ```
-- Dumps / prints a table with a cap of 9 stacks.
-- This function is the same as this [function](https://github.com/Exunys/Table-Dump).
+- Runs the given **Callback** function with the **index** of the **value** and the **value**.
+- Example:
+```lua
+Recursive({1, {2, 3, {4}}}, print)
+--[[ Output:
+1 1
+1 2
+2 3
+1 4
+]]
+```
 ## Rejoin
 ```lua
 <void> Rejoin(<void>)
