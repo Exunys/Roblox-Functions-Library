@@ -100,8 +100,14 @@ local Functions = {
         end
     end,
 
-    TableDump = function(Table)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Table-Dump/main/Module.lua"))()(Table)
+    Recursive = function(Table, Callback)
+        for i, v in next, Table do
+            if type(v) == "table" then
+                Recursive(v, Callback)
+            else
+                Callback(i, v)
+            end
+        end
     end,
 
     Rejoin = function()
