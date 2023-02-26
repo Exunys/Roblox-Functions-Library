@@ -7,6 +7,7 @@
 - [09/04/2022] - V1.0 First release
 - [03/05/2022] - V1.1 Release
 - [26/01/2023] - V1.2 Replaced `TableDump` with new `Recursive` function.
+- [26/02/2023] - V1.3 Optimized source
 ## Installing
 - To install / import this library inside your code's environment, you will need to use the `loadstring` function. Example:
 ```lua
