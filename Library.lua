@@ -28,7 +28,7 @@ local Variables = {
 
 local Functions = {
 	Encode = function(Table)
-		return Table and type(Table) == "table" Services.HttpService:JSONEncode(Table)
+		return Table and type(Table) == "table" and Services.HttpService:JSONEncode(Table)
 	end,
 
 	Decode = function(String)
