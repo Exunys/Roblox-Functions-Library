@@ -41,6 +41,11 @@ end
 ## Mouse
 - This variable stores the LocalPlayer's Mouse. Equivalent to `LocalPlayer:GetMouse()`.
 # Functions
+## GetService
+```lua
+<userdata> GetService(<string> Service)
+```
+- Safer alternative to **game.GetService**.
 ## Encode
 ```lua
 <string> Encode(<table> Table)
