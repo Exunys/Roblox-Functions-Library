@@ -1,18 +1,27 @@
+local cloneref = cloneref or function(...)
+	return ...
+end
+
+local GetService = function(Service)
+	return cloneref(game.GetService(game, Service))
+end
+
 --// Services
 
 local Services = {
-	RunService = game:GetService("RunService"),
-	UserInputService = game:GetService("UserInputService"),
-	HttpService = game:GetService("HttpService"),
-	TweenService = game:GetService("TweenService"),
-	StarterGui = game:GetService("StarterGui"),
-	Players = game:GetService("Players"),
-	StarterPlayer = game:GetService("StarterPlayer"),
-	Lighting = game:GetService("Lighting"),
-	ReplicatedStorage = game:GetService("ReplicatedStorage"),
-	ReplicatedFirst = game:GetService("ReplicatedFirst"),
-	TeleportService = game:GetService("TeleportService"),
-	CoreGui = game:GetService("CoreGui"),
+	RunService = GetService("RunService"),
+	UserInputService = GetService("UserInputService"),
+	HttpService = GetService("HttpService"),
+	TweenService = GetService("TweenService"),
+	StarterGui = GetService("StarterGui"),
+	Players = GetService("Players"),
+	StarterPlayer = GetService("StarterPlayer"),
+	Lighting = GetService("Lighting"),
+	ReplicatedStorage = GetService("ReplicatedStorage"),
+	ReplicatedFirst = GetService("ReplicatedFirst"),
+	TeleportService = GetService("TeleportService"),
+	CoreGui = GetService("CoreGui"),
+	VirtualUser = GetService("VirtualUser")
 	Camera = workspace.CurrentCamera
 }
 
@@ -65,19 +74,19 @@ local Functions = {
 
 		local Target = nil
 
-		for _, v in next, Services.Players:GetPlayers() do
-			if v ~= Variables.LocalPlayer and v.Character[Part] then
+		for _, Value in next, Services.Players:GetPlayers() do
+			if Value ~= Variables.LocalPlayer and Value.Character[Part] then
 				if type(Settings) == "table" then
-					if Settings[1] and v.TeamColor == Variables.LocalPlayer.TeamColor then continue end
-					if Settings[2] and v.Character.Humanoid.Health <= 0 then continue end
-					if Settings[3] and #(Services.Camera:GetPartsObscuringTarget({v.Character[Part].Position}, v.Character:GetDescendants())) > 0 then continue end
+					if Settings[1] and Value.TeamColor == Variables.LocalPlayer.TeamColor then continue end
+					if Settings[2] and Value.Character.Humanoid.Health <= 0 then continue end
+					if Settings[3] and #(Services.Camera:GetPartsObscuringTarget({Value.Character[Part].Position}, Value.Character:GetDescendants())) > 0 then continue end
 				end
 
-				local Vector, OnScreen = Services.Camera:WorldToViewportPoint(v.Character[Part].Position)
+				local Vector, OnScreen = Services.Camera:WorldToViewportPoint(Value.Character[Part].Position)
 				local Distance = (Services.UserInputService:GetMouseLocation() - Vector2.new(Vector.X, Vector.Y)).Magnitude
 
 				if Distance < RequiredDistance and OnScreen then
-					RequiredDistance, Target = Distance, v
+					RequiredDistance, Target = Distance, Value
 				end
 			end
 		end
@@ -90,11 +99,11 @@ local Functions = {
 	end,
 
 	Recursive = function(Table, Callback)
-		for i, v in next, Table do
-			Callback(i, v)
+		for Index, Value in next, Table do
+			Callback(Index, Value)
 
-			if type(v) == "table" then
-				Recursive(v, Callback)
+			if type(Value) == "table" then
+				Recursive(Value, Callback)
 			end
 		end
 	end,
@@ -103,8 +112,22 @@ local Functions = {
 		Services.TeleportService:Teleport(game.PlaceId, Variables.LocalPlayer)
 	end,
 
+	ServerHop = function(MinPlayers, MaxPing)
+		for _, Value in next, Encode(game:HttpGet(string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", game.PlaceId))) do
+			if Value.playing ~= Value.maxPlayers and Value.playing and Value.playing > MinPlayers or Value.maxPlayers / 2 and Value.ping < MaxPing or 100 then
+				Services.TeleportService:TeleportToPlaceInstance(game.PlaceId, Value.id, Variables.LocalPlayer)
+			else
+				warn("Exunys Developer - ROBLOX Functions & Services Reference Library > Server Hop - Couldn't find a server to hop to! Consider using the \"Rejoin\" option.")
+			end
+		end
+	end,
+
 	SetFOV = function(FOV)
 		Services.Camera.FieldOfView = FOV
+	end,
+
+	SetStretch = function(Amount)
+		Services.Camera.CFrame *= CFrame.new(0, 0, 0, 1, 0, 0, 0, Amount, 0, 0, 0, 1)
 	end,
 
 	SetMouseIconVisibility = function(Value)
@@ -112,9 +135,9 @@ local Functions = {
 	end,
 
 	GetPlayer = function(String)
-		for _, v in next, Services.Players:GetPlayers() do
-			if string.sub(string.lower(v.Name), 1, -1) == string.lower(String) then
-				return v
+		for _, Value in next, Services.Players:GetPlayers() do
+			if string.sub(string.lower(Value.Name), 1, -1) == string.lower(String) then
+				return Value
 			end
 		end
 	end,
@@ -142,10 +165,10 @@ local Functions = {
 	GetHWID = function()
 		local Data = Services.HttpService:JSONDecode(syn.request({Url = "https://httpbin.org/get"; Method = "GET"}).Body)
 
-		for _, v in next, {"Exploit-Guid", "Syn-Fingerprint", "Proto-User-Identifier", "Sentinel-Fingerprint", "SW-Fingerprint", "krnl-hwid"} do
-			if not Data.headers[v] then continue end
+		for _, Value in next, {"Exploit-Guid", "Syn-Fingerprint", "Proto-User-Identifier", "Sentinel-Fingerprint", "SW-Fingerprint", "krnl-hwid"} do
+			if not Data.headers[Value] then continue end
 
-			return Data.headers[v]
+			return Data.headers[Value]
 		end
 	end,
 
@@ -164,16 +187,16 @@ local Functions = {
 
 --// Main
 
-for i, v in next, Services do
-	getfenv(1)[i] = v
+for Index, Value in next, Services do
+	getfenv(1)[Index] = Value
 end
 
-for i, v in next, Variables do
-	getfenv(1)[i] = v
+for Index, Value in next, Variables do
+	getfenv(1)[Index] = Value
 end
 
-for i, v in next, Functions do
-	getfenv(1)[i] = v
+for Index, Value in next, Functions do
+	getfenv(1)[Index] = Value
 end
 
 --// Managing
@@ -189,15 +212,15 @@ end)
 --// Unload Function
 
 getfenv(1).ED_UnloadFunctions = function()
-	for i, _ in next, Services do
-		getfenv(1)[i] = nil
+	for Index, _ in next, Services do
+		getfenv(1)[Index] = nil
 	end
 
-	for i, _ in next, Variables do
-		getfenv(1)[i] = nil
+	for Index, _ in next, Variables do
+		getfenv(1)[Index] = nil
 	end
 
-	for i, _ in next, Functions do
-		getfenv(1)[i] = nil
+	for Index, _ in next, Functions do
+		getfenv(1)[Index] = nil
 	end
 end
