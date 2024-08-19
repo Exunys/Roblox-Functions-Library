@@ -36,6 +36,8 @@ local Variables = {
 --// Functions
 
 local Functions = {
+	GetService = clonefunction and clonefunction(GetService) or GetService,
+	
 	Encode = function(Table)
 		return Table and type(Table) == "table" and Services.HttpService:JSONEncode(Table)
 	end,
