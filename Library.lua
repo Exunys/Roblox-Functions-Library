@@ -21,7 +21,7 @@ local Services = {
 	ReplicatedFirst = GetService("ReplicatedFirst"),
 	TeleportService = GetService("TeleportService"),
 	CoreGui = GetService("CoreGui"),
-	VirtualUser = GetService("VirtualUser")
+	VirtualUser = GetService("VirtualUser"),
 	Camera = workspace.CurrentCamera
 }
 
