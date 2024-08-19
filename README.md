@@ -1,4 +1,4 @@
-# ROBLOX Reference Library (Services & Functions)
+# ROBLOX Reference Library (Services & Functions) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Exunys.Roblox-Functions-Library&right_color=green)](https://github.com/Exunys/Roblox-Functions-Library/blob/main/Documentation.md)
 ## Information
 - This is a library of functions that get loaded directly into your program's environment without having to index anything like `Library.Rejoin()`, instead just using `Rejoin()`.
 - This library / module is guaranteed to make your work and code easier, executive & clean.
