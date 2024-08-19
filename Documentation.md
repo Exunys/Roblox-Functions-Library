@@ -23,6 +23,8 @@
 - Roblox's [TeleportService](https://developer.roblox.com/en-us/api-reference/class/TeleportService) Service.
 ## CoreGui
 - Roblox's [CoreGui](https://developer.roblox.com/en-us/api-reference/class/CoreGui) Service.
+## VirtualUser
+- Roblox's [VirtualUser](https://developer.roblox.com/en-us/api-reference/class/VirtualUser) Service.
 ## Camera
 - Roblox's Workspace [Camera](https://developer.roblox.com/en-us/api-reference/class/Camera).
 # Variables
@@ -110,11 +112,21 @@ Recursive({1, {2, 3, {4}}}, print)
 <void> Rejoin(<void>)
 ```
 - Rejoins the current server, useful refreshing most scripts.
+## ServerHop
+```lua
+<void> ServerHop(<uint/nil> Minimum Players, <uint/nil> Maximum Ping)
+```
+- Searches and joins a server in the game you are playing with the minimum player count of the parsed **Minimum Players** value or half of the universe's maximum player amount and maximum ping of the value of the **Maximum Ping** argument or 100. 
 ## SetFOV
 ```lua
 <void> SetFOV(<uint> FieldOfView)
 ```
 - Sets the [Camera](https://developer.roblox.com/en-us/api-reference/class/Camera)'s **FieldOfView** property to the entered parameter.
+## SetStretch
+```lua
+<void> SetStretch(<uint> Stretch Amount)
+```
+- Stretches / distorts the screen amplified with the parsed parameter.
 ## SetMouseIconVisibility
 ```lua
 <void> SetMouseIconVisibility(<bool> Value)
