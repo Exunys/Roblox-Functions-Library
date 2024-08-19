@@ -115,7 +115,7 @@ local Functions = {
 	end,
 
 	ServerHop = function(MinPlayers, MaxPing)
-		for _, Value in next, Encode(game:HttpGet(string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", game.PlaceId))) do
+		for _, Value in next, Services.HttpService:JSONDecode(game:HttpGet(string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", game.PlaceId))) do
 			if Value.playing ~= Value.maxPlayers and Value.playing and Value.playing > MinPlayers or Value.maxPlayers / 2 and Value.ping < MaxPing or 100 then
 				Services.TeleportService:TeleportToPlaceInstance(game.PlaceId, Value.id, Variables.LocalPlayer)
 			else
