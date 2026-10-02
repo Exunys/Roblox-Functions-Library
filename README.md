@@ -1,6 +1,4 @@
-# ROBLOX Reference Library (Services & Functions)
-
-[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Exunys.Roblox-Functions-Library&right_color=green)](https://github.com/Exunys/Roblox-Functions-Library/blob/main/Documentation.md)
+# ROBLOX Reference Library (Services & Functions) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Exunys.Roblox-Functions-Library&right_color=green)](https://github.com/Exunys/Roblox-Functions-Library/blob/main/Documentation.md)
 
 A lightweight utility module that injects common Roblox services and helper functions directly into your global environment. Instead of indexing methods through a library namespace (e.g., `Library.Rejoin()`), you can call them directly (e.g., `Rejoin()`), keeping your codebase clean and efficient.
 
